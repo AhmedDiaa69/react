@@ -7,7 +7,9 @@ function Header(){
 
     users.sort((a, b) => a.name.localeCompare(b.name));
 
-    const usersList = users.map(user => <li key={user.name}>{user.name}: {user.age} years old</li>)
+    const usersList = users.map(user => <li key={user.name}>
+                                            {user.name}: {user.age} years old
+                                        </li>)
 
     return(
         <header>
