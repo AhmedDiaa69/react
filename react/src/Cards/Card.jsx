@@ -10,8 +10,7 @@ function Card_({
     text="idk tbh"}) {
 
     const style = {
-        width: "18rem",
-        
+        width: "18rem",   
     }
     PropTypes.checkPropTypes(Card_.propTypes, { name, no, title, text }, 'prop', 'Card_');
 
@@ -26,7 +25,7 @@ function Card_({
             <Card.Text className={styles.text}>
                 {text}
             </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
+            <Button variant="primary">My profile</Button>
         </Card.Body>
     </Card>
     );

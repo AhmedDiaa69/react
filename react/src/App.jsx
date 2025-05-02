@@ -1,21 +1,33 @@
 import "./App.css"
-import Header from "./Header.jsx"
+import Header, { users } from './Header';
 import Footer from "./Footer.jsx"
 import Card_ from "./Cards/Card.jsx"
+import LogIn from "./LogIn.jsx"
 
 
 function App() {
 
-  return (
+  const logedIn = true;
+
+  const cards = users.map(user => {
+                          const text = `Hello my name is ${user.name} and i'm ${user.age} years old`;
+                          return (
+                          <Card_ 
+                          key={user.name}
+                           no={Math.floor(Math.random() * (9 - 1) + 1)} 
+                           name={user.name} 
+                           title={user.name} 
+                           text={text} />)})
+
+  return ( logedIn ?
     <>
       <Header />
       <div className="card_container">
-        <Card_ no={1} name="mario" title="No1" text="Hello it's me mario"/>
-        <Card_ no={2} name="dino" title="No2" text="Hi it's me dino"/>
-        <Card_ no={3} name="potato" title="No3" text="Hi it's me potato"/>
+        {cards}
       </div>
       <Footer />
-    </>
+    </> :
+    <LogIn /> 
   )
 }
 
