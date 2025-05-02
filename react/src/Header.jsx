@@ -1,7 +1,7 @@
 
 export const users = [{name: "Mario", age: 44}, 
     {name: "Dino", age: 17}, 
-    {name: "potato", age: 18}];
+    {name: "Potato", age: 18}];
 
 function Header(){
 
