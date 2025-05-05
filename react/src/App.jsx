@@ -4,17 +4,21 @@ import Footer from "./Footer.jsx"
 import Card_ from "./Cards/Card.jsx"
 import LogIn from "./LogIn.jsx"
 
+users.sort((a, b) => a.age - b.age);
 
 function App() {
 
   const logedIn = true;
 
   const cards = users.map(user => {
-                          const text = `Hello my name is ${user.name} and i'm ${user.age} years old`;
+                          const text = `Hello my name is 
+                          ${user.name} and I'm ${user.age}
+                           years old`;
+                          
                           return (
-                          <Card_ 
-                          key={user.name}
-                           no={Math.floor(Math.random() * (9 - 1) + 1)} 
+                          <Card_
+                           key={user.name}
+                           no={Math.floor(Math.random() * 9) + 1} 
                            name={user.name} 
                            title={user.name} 
                            text={text} />)})

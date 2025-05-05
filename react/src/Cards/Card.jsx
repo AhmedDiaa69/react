@@ -10,11 +10,25 @@ function Card_({
     text="idk tbh"}) {
 
     const style = {
-        width: "18rem",   
+        width: "18rem",
     }
     PropTypes.checkPropTypes(Card_.propTypes, { name, no, title, text }, 'prop', 'Card_');
 
-    const src = `https://dummyimage.com/300X200/92${no}/fff&text=${name}`
+    const src = `https://dummyimage.com/300X200/92${no}/fff&text=${name}`;
+    
+    // so i can go to a website using the button
+
+    let click;
+
+    const nName = (name || "").trim().toLowerCase();
+
+    if (nName == "dino") {
+        click = () => window.location.href = "https://chromedino.com/";
+    } else if (nName == "potato") {
+        click = () => window.location.href = "https://en.wikipedia.org/wiki/Potato";
+    } else if (nName == "mario") {
+        click = () => window.location.href = "https://en.wikipedia.org/wiki/Mario";
+    }
 
 
     return (
@@ -25,13 +39,13 @@ function Card_({
             <Card.Text className={styles.text}>
                 {text}
             </Card.Text>
-            <Button variant="primary">My profile</Button>
+            <Button variant="primary" onClick={click}>My profile</Button>
         </Card.Body>
     </Card>
     );
   }
 
-Card_.PropTypes = {
+Card_.propTypes = {
     name: PropTypes.string,
     no: PropTypes.number,
     title: PropTypes.string,

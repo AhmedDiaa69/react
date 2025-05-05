@@ -1,11 +1,11 @@
 
 export const users = [{name: "Mario", age: 44}, 
-    {name: "Dino", age: 17}, 
-    {name: "Potato", age: 18}];
+                    {name: "Dino", age: 17}, 
+                    {name: "Potato", age: 18}];
 
 function Header(){
 
-    users.sort((a, b) => a.name.localeCompare(b.name));
+    users.sort((a, b) => a.age - b.age);
 
     const usersList = users.map(user => <li key={user.name}>
                                             {user.name}: {user.age} years old
