@@ -1,10 +1,12 @@
-export const users = [
+
+export let users = [
   { name: "Mario", age: 44 },
   { name: "Dino", age: 17 },
   { name: "Potato", age: 18 },
 ];
 
 function Header() {
+
   users.sort((a, b) => a.age - b.age);
 
   const usersList = users.map((user) => (
@@ -14,12 +16,14 @@ function Header() {
   ));
 
   return (
-    <header>
-      <h1>Welcome back Trakonor</h1>
-      <nav>
-        <ul>{usersList}</ul>
-      </nav>
-    </header>
+    <>
+      <header>
+        <h1>Welcome back Trakonor</h1>
+        <nav>
+          <ul>{usersList}</ul>
+        </nav>
+      </header>
+    </>
   );
 }
 
