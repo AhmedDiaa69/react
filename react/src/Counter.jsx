@@ -1,20 +1,20 @@
 import { useState } from "react";
 
 function Counter() {
-  let styles = { fontSize: "5rem" };
+  let styles = { fontSize: "7rem" };
 
   let [num, setNum] = useState(0);
 
   const up = () => {
-    setNum(num + 1);
+    setNum(num => num + 1);
   };
 
   const down = () => {
-    setNum(num - 1);
+    setNum(num => num - 1);
   };
 
   const reset = () => {
-    setNum(0);
+    setNum(num => num = 0);
   };
 
   return (

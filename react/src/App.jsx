@@ -1,5 +1,5 @@
 import "./App.css";
-import Header, { users } from "./Header";
+import Header, { users } from "./Header/Header.jsx";
 import Footer from "./Footer.jsx";
 import Card_ from "./Cards/Card.jsx";
 import LogIn from "./LogIn.jsx";
