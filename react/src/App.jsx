@@ -1,11 +1,12 @@
 import "./App.css";
-import Header, { users } from "./Header/Header.jsx";
+import Header, { users } from "./Header.jsx";
 import Footer from "./Footer.jsx";
 import Card_ from "./Cards/Card.jsx";
 import LogIn from "./LogIn.jsx";
 import Counter from "./Counter.jsx";
+import InterestRate from "./InterestRate.jsx";
 
-users.sort((a, b) => a.age - b.age);
+users.sort((a, b) => b.age - a.age);
 
 function App() {
   const logedIn = true;
@@ -29,6 +30,7 @@ function App() {
       <Header />
       <div className="card_container">{cards}</div>
       <Counter />
+      <InterestRate />
       <Footer />
     </>
   ) : (
