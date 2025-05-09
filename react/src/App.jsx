@@ -1,14 +1,22 @@
 import "./App.css";
-import Header, { users } from "./Header.jsx";
+import Header from "./Header.jsx";
 import Footer from "./Footer.jsx";
 import Card_ from "./Cards/Card.jsx";
 import LogIn from "./LogIn.jsx";
 import Counter from "./Counter.jsx";
 import InterestRate from "./InterestRate.jsx";
-
-users.sort((a, b) => b.age - a.age);
+import { useState } from "react";
 
 function App() {
+
+  let [users, setUsers] = useState([
+    { name: "Mario", age: 44 },
+    { name: "Dino", age: 17 },
+    { name: "Potato", age: 18 },
+  ]);
+
+  users.sort((a, b) => b.age - a.age);
+
   const logedIn = true;
 
   const cards = users.map((user) => {
@@ -27,7 +35,7 @@ function App() {
 
   return logedIn ? (
     <>
-      <Header />
+      <Header users={users} setUsers={setUsers}/>
       <div className="card_container">{cards}</div>
       <Counter />
       <InterestRate />

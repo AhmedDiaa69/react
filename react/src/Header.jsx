@@ -1,19 +1,8 @@
 import { useState } from "react";
 
-export let users = [
-  { name: "Mario", age: 44 },
-  { name: "Dino", age: 17 },
-  { name: "Potato", age: 18 },
-];
-
 let img = `https://dummyimage.com/300X200/920/fff&text=Guest`;
 
-function Header() {
-  let [userss, setUserss] = useState([
-    { name: "Mario", age: 44 },
-    { name: "Dino", age: 17 },
-    { name: "Potato", age: 18 },
-  ]);
+function Header({ users, setUsers}) {
 
   let [name, setName] = useState();
   let [age, setAge] = useState();
@@ -32,14 +21,18 @@ function Header() {
   };
 
   function addUser() {
+    if (!name || !age) return;
     const newUser = { name: name, age: age };
 
-    setUserss((u) => [...u, newUser]);
+    setUsers((u) => [...u, newUser]);
+
+    setAge("")
+    setName("")
   }
 
-  userss.sort((a, b) => b.age - a.age);
+  users.sort((a, b) => b.age - a.age);
 
-  const usersList = userss.map((user) => (
+  const usersList = users.map((user) => (
     <li key={user.name}>
       {user.name}: {user.age} years old
     </li>
@@ -73,7 +66,7 @@ function Header() {
           old
         </p>
         <p style={{ color: "aliceblue" }}>The image will be:</p>
-        <img src={img} /> <br /> <br />
+        <img style={{borderRadius: "5px"}} src={img} /> <br /> <br />
         <button onClick={addUser}>Add user</button>
       </div>
     </>
