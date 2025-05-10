@@ -4,33 +4,33 @@ function InterestRate() {
   let [interestRate, setInterestRate] = useState();
   let [moneyBerMonth, setMoneyBerMonth] = useState();
   let [years, setYears] = useState();
-  let [moneyInEnd, setMoneyInEnd] = useState();
+  let [total, setTotal] = useState();
 
   const changeInterestRate = (e) => {
     let newRate = e.target.value;
     setInterestRate(newRate);
-    setMoneyInEnd(Calculate(newRate, moneyBerMonth, years));
+    setTotal(Calculate(newRate, moneyBerMonth, years));
   };
 
   const changeMoneyBerMonth = (e) => {
     let newMBM = e.target.value;
     setMoneyBerMonth(newMBM);
-    setMoneyInEnd(Calculate(interestRate, newMBM, years));
+    setTotal(Calculate(interestRate, newMBM, years));
   };
 
   const changeYears = (e) => {
     let newYears = e.target.value;
     setYears(newYears);
-    setMoneyInEnd(Calculate(interestRate, moneyBerMonth, newYears));
+    setTotal(Calculate(interestRate, moneyBerMonth, newYears));
   };
 
   function Calculate(rate, MBM, years) {
-    let moneyBerYear = 0;
+    total = 0;
     for (let i = 0; i < years; i++) {
-      moneyBerYear += MBM * 12;
-      moneyInEnd = moneyBerYear * (1 + rate / 100);
+      total += MBM * 12;
+      total *= 1 + rate / 100;
     }
-    return moneyInEnd;
+    return total.toLocaleString();
   }
 
   return (
@@ -63,7 +63,7 @@ function InterestRate() {
         />
       </div>
       <p>The money in the last year will be:</p>
-      <p style={{ color: "aqua" }}>{moneyInEnd ? moneyInEnd : 0}</p>
+      <p style={{ color: "aqua" }}>${total ? total : 0}</p>
     </div>
   );
 }
