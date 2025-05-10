@@ -21,6 +21,10 @@
   max-width: 500px;
 }
 
+.divContainer img {
+  width: 100%;
+}
+
 .inputs {
   display: grid;
   color: rgb(240, 248, 255);
