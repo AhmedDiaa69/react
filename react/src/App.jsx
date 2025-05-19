@@ -29,8 +29,7 @@ function App() {
         name={user.name}
         title={user.name}
         text={text}
-      />
-    );
+      />)
   });
 
   return logedIn ? (
