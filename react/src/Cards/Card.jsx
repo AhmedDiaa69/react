@@ -40,7 +40,7 @@ function Card_({
 
   return (
     <Card style={style} bg="dark" text="white">
-      <Card.Img variant="top" src={src} />
+      <Card.Img variant="top" src={src} loading="lazy" />
       <Card.Body>
         <Card.Title>
           <div
