@@ -6,18 +6,17 @@ let splitText = (
     text="Welcome back Trakonor"
     className="text-2xl font-semibold text-center"
     delay={50}
-    animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
-    animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
+    animationFrom={{ opacity: 0, transform: "translate3d(0,50px,0)" }}
+    animationTo={{ opacity: 1, transform: "translate3d(0,0,0)" }}
     easing="easeOutCubic"
     threshold={0.2}
     rootMargin="-50px"
   />
-)
+);
 
 let img = `https://dummyimage.com/300X200/920/fff&text=Guest`;
 
-function Header({ users, setUsers}) {
-
+function Header({ users, setUsers }) {
   let [name, setName] = useState();
   let [age, setAge] = useState();
 
@@ -40,11 +39,14 @@ function Header({ users, setUsers}) {
 
     setUsers((u) => [...u, newUser]);
 
-    setAge("")
-    setName("")
+    setAge("");
+    setName("");
   }
 
-  users.sort((a, b) => b.age - a.age);
+  //users.sort((a, b) => b.age - a.age);
+
+  // for ascending order a->z
+  users.sort((a, b) => a.name.localeCompare(b.name));
 
   const usersList = users.map((user) => (
     <li key={user.name}>
@@ -55,7 +57,9 @@ function Header({ users, setUsers}) {
   return (
     <>
       <header>
-        <h1>{splitText}</h1>
+        <h1>
+          <b>{splitText}</b>
+        </h1>
         <nav>
           <ul>{usersList}</ul>
         </nav>
@@ -80,7 +84,7 @@ function Header({ users, setUsers}) {
           old
         </p>
         <p style={{ color: "aliceblue" }}>The image will be:</p>
-        <img style={{borderRadius: "5px"}} src={img} /> <br /> <br />
+        <img style={{ borderRadius: "5px" }} src={img} /> <br /> <br />
         <button onClick={addUser}>Add user</button>
       </div>
     </>

@@ -1,0 +1,9 @@
+.formContainer {
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: bisque;
+    padding: 20px;
+    background-color: rgb(40, 40, 40);
+    text-align: left;
+    max-width: 500px;
+}

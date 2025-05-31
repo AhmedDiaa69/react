@@ -8,14 +8,16 @@ import InterestRate from "./InterestRate.jsx";
 import { useState } from "react";
 
 function App() {
-
   let [users, setUsers] = useState([
     { name: "Mario", age: 44 },
     { name: "Dino", age: 17 },
     { name: "Potato", age: 18 },
   ]);
 
-  users.sort((a, b) => b.age - a.age);
+  //users.sort((a, b) => b.age - a.age);
+
+  // for ascending order a->z
+  users.sort((a, b) => a.name.localeCompare(b.name));
 
   const logedIn = true;
 
@@ -29,12 +31,13 @@ function App() {
         name={user.name}
         title={user.name}
         text={text}
-      />)
+      />
+    );
   });
 
   return logedIn ? (
     <>
-      <Header users={users} setUsers={setUsers}/>
+      <Header users={users} setUsers={setUsers} />
       <div className="card_container">{cards}</div>
       <Counter />
       <InterestRate />
